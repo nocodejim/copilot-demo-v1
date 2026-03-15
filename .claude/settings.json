@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw *)",
+      "Bash(mvn *)",
+      "Bash(docker *)",
+      "Bash(kubectl *)",
+      "Bash(gh *)",
+      "Bash(curl *)",
+      "Bash(git *)",
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'File modified — consider running ./mvnw test'"
+          }
+        ]
+      }
+    ]
+  }
+}

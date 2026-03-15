@@ -1,0 +1,38 @@
+{
+  "name": "Claude Code Demo - Spring Boot 3.x / Java 21",
+  "image": "mcr.microsoft.com/devcontainers/java:21-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "kubectl": "latest",
+      "helm": "latest",
+      "minikube": "none"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-boot-extension-pack",
+        "redhat.vscode-yaml",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ],
+      "settings": {
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/msopenjdk-current",
+            "default": true
+          }
+        ]
+      }
+    }
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "java -version && mvn -version && gh --version && kubectl version --client",
+  "remoteUser": "vscode"
+}
